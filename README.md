@@ -7,8 +7,8 @@ the tabs for easier guitar playing.
 # Roles of everyone on the team
 | Name | Role / Focus Area                        | Responsibilities                                                               |
 | ---- | ---------------------------------------- | ------------------------------------------------------------------------------ |
-| TBD  | Project Manager / Full-Stack Integrator  | Sprint planning, GitHub management, team coordination, integration             |
-| TBD  | Frontend Developer                       | React UI, upload page, result page, download button, styling                   |
-| TBD  | Backend Developer                        | Express server, API routes, file upload handling, backend setup                |
-| TBD  | MusicXML / Conversion Developer          | MusicXML parsing, pitch mapping, guitar tab conversion, output file generation |
-| TBD  | Testing / Documentation / Rendering Lead | Test files, error testing, README, tab viewer research, final demo prep        |
+| Hunter| Project Manager / Full-Stack Integrator | Sprint planning, GitHub management, team coordination, integration             |
+| Rhino  | Frontend Developer                     | React UI, upload page, result page, download button, styling                   |
+| Luke & Hunter  | Backend Developer              | Express server, API routes, file upload handling, backend setup                |
+| My Boi Jo  | MusicXML / Conversion Developer    | MusicXML parsing, pitch mapping, guitar tab conversion, output file generation |
+| Emily | Testing / Documentation / Rendering Lead     | Test files, error testing, README, tab viewer research, final demo prep            |
