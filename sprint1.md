@@ -26,7 +26,7 @@ By the end of Sprint 2, the team must have answered every open question that wou
 - [x] All five deliverables below are complete
 - [x] `PROJECT PLAN.md` is updated with every decision made this sprint
 - [ ] GitHub repo is live and every team member has pushed at least one commit
-- [ ] `sprint1.md` is committed to the repo
+- [x] `sprint1.md` is committed to the repo
 - [ ] Sprint 3 can begin immediately with no unresolved blockers
 
 ---
@@ -90,10 +90,10 @@ The README already proposes a stack. This sprint confirms or adjusts it so every
 This is the most critical technical decision of the entire project. The conversion approach affects Sprint 3, 4, and 5 directly. It must be locked in by end of Sprint 1.
 
 **Tasks:**
-- [ ] **My Boi Jo** — Research the MusicXML schema. Answer: what fields exist? (notes, pitch, octave, duration, measure, lyric, rest)
-- [ ] **My Boi Jo** — Read at least 1 real `.xml` MusicXML files
-- [ ] **My Boi Jo** — Research rule-based pitch → fret mapping. Map out how you would convert a pitch (e.g., E4) to a string + fret in standard tuning (E2 A2 D3 G3 B3 E4)
-- [ ] **My Boi Jo** — Research `music21` (Python) as an alternative — note: would require a Python microservice alongside the Node backend
+- [x] **My Boi Jo** — Research the MusicXML schema. Answer: what fields exist? (notes, pitch, octave, duration, measure, lyric, rest)
+- [x] **My Boi Jo** — Read at least 1 real `.xml` MusicXML files
+- [x] **My Boi Jo** — Research rule-based pitch → fret mapping. Map out how you would convert a pitch (e.g., E4) to a string + fret in standard tuning (E2 A2 D3 G3 B3 E4)
+- [x] **My Boi Jo** — Research `music21` (Python) as an alternative — note: would require a Python microservice alongside the Node backend
 - [ ] **Emily** — Find and test at least 3 real MusicXML files from free sources 
 - [ ] **My Boi Jo + Emily** — Write a brief comparison doc: rule-based vs. music21 vs. OpenAI Vision in `docs/conversion-approach.md`
 - [ ] **Hunter** — Facilitate final team decision meeting; document the chosen approach in `PROJECT PLAN.md`
