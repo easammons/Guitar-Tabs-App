@@ -46,3 +46,6 @@ The tradeoff of requiring a Python backend (instead of staying in Node) is accep
 - Single-melody input (no chords for MVP)
 - Notes below E2 (MIDI 40) or above ~F5: flagged as `out_of_range`, not silently dropped
 - `.mxl` (compressed MusicXML) and `.xml` both supported via music21
+### Conversion Approach
+
+Music21 is, in my mind, the clear choice for the conversion logic, as it does everything we would want it to. It has built in support for reading musicXML, different guitar tunings, and parsing chords efficiently. It shouldn't have any issue with edge cases like the high or low Es mentioned in the sprint plan. 
