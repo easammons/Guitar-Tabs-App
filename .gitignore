@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+*.log
+
+# Python
+server/venv/
+server/__pycache__/
+server/**/__pycache__/
+*.pyc
+*.pyo
+
+# Uploaded files (keep the .gitkeep, ignore contents)
+server/uploads/*
+!server/uploads/.gitkeep
