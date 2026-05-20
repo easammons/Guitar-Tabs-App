@@ -13,3 +13,8 @@ server/**/__pycache__/
 # Uploaded files (keep the .gitkeep, ignore contents)
 server/uploads/*
 !server/uploads/.gitkeep
+
+# Claude Code local settings
+.claude/settings.local.json
+
+CLAUDE.md
