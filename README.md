@@ -10,8 +10,8 @@ the tabs for easier guitar playing.
 | Hunter         | Project Manager / Full-Stack Integrator   | Sprint planning, GitHub management, team coordination, integration             |
 | Rhino          | Frontend Developer                        | React UI, upload page, result page, download button, styling                   |
 | Luke & Hunter  | Backend Developer                         | Express server, API routes, file upload handling, backend setup                |
-| My Boi Jo      | MusicXML / Conversion Developer           | MusicXML parsing, pitch mapping, guitar tab conversion, output file generation |
-| Emily          | Testing / Documentation / Rendering Lead  | Test files, error testing, README, tab viewer research, final demo prep        |
+| My Boi Jo      | MusicXML / Conversion Developer           | MusicXML parsing, pitch mapping, guitar tab conversion, output file generation, and also a backend developer|
+| Emily          | Testing / Documentation / Rendering Lead  | Test files, error testing, README, tab viewer research, final demo prep, and exploring music xml        |
 
 
 ## Tech Stack
