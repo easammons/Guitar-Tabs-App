@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
 import './Upload.css'
+import MyButton from './MyButton.tsx'
 
-function MyButton({ title }: { title: string }) {
-  return <button className="upload-btn">{title}</button>
+function MyLink({ location, text }: { location: string, text: string }) {
+    return <Link to={location}>{text}</Link>
 }
 
 export default function Upload() {
@@ -10,7 +12,7 @@ export default function Upload() {
       <nav className="upload-nav">
         <img
           className="upload-nav__logo"
-          src="/favicon.svg"
+          src="/guitar-favicon.png"
           alt="TabVerter logo"
         />
         <h1 className="upload-nav__title">TabVerter</h1>
@@ -18,7 +20,7 @@ export default function Upload() {
       <div className="upload-dropzone">
         <p className="upload-dropzone__label">Upload file or Document</p>
       </div>
-      <MyButton title="Capture Mode" />
+      <MyButton location="/download" text="Capture Mode" />
     </div>
   )
 }

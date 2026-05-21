@@ -97,6 +97,11 @@ p {
   margin: 0;
 }
 
+a {
+  color: var(--primary-color-light);
+  text-decoration: none;
+}
+
 code,
 .counter {
   font-family: var(--mono);
