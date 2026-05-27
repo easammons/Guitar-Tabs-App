@@ -1,10 +1,5 @@
-import { Link } from 'react-router-dom'
 import './Upload.css'
 import MyButton from './MyButton.tsx'
-
-function MyLink({ location, text }: { location: string, text: string }) {
-    return <Link to={location}>{text}</Link>
-}
 
 export default function Upload() {
   return (
