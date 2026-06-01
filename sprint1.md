@@ -26,7 +26,7 @@ By the end of Sprint 2, the team must have answered every open question that wou
 - [x] All five deliverables below are complete
 - [x] `PROJECT PLAN.md` is updated with every decision made this sprint
 - [ ] GitHub repo is live and every team member has pushed at least one commit
-- [ ] `sprint1.md` is committed to the repo
+- [x] `sprint1.md` is committed to the repo
 - [ ] Sprint 3 can begin immediately with no unresolved blockers
 
 ---
@@ -45,7 +45,7 @@ The repo must be created, structured, and accessible to all five teammates befor
 - [ ] **Hunter** — Create a `dev` branch as the shared integration branch
 - [ ] **Hunter** — Add a `.gitignore` for Node.js and React projects
 - [ ] **Hunter** — Open GitHub Issues for every task in this sprint plan (one issue per task)
-- [ ] **Everyone** — Clone the repo, create a personal branch (`name/setup`), push a small change (e.g., add your name to a scratch file), and open a PR to confirm you can use the workflow
+- [x] **Everyone** — Clone the repo, create a personal branch (`name/setup`), push a small change (e.g., add your name to a scratch file), and open a PR to confirm you can use the workflow
 - [ ] **Hunter** — Document the agreed branching strategy in `docs/CONTRIBUTING.md`
 
 **Agreed Branching Convention (to document):**
@@ -90,19 +90,19 @@ The README already proposes a stack. This sprint confirms or adjusts it so every
 This is the most critical technical decision of the entire project. The conversion approach affects Sprint 3, 4, and 5 directly. It must be locked in by end of Sprint 1.
 
 **Tasks:**
-- [ ] **My Boi Jo** — Research the MusicXML schema. Answer: what fields exist? (notes, pitch, octave, duration, measure, lyric, rest)
-- [ ] **My Boi Jo** — Read at least 1 real `.xml` MusicXML files
-- [ ] **My Boi Jo** — Research rule-based pitch → fret mapping. Map out how you would convert a pitch (e.g., E4) to a string + fret in standard tuning (E2 A2 D3 G3 B3 E4)
-- [ ] **My Boi Jo** — Research `music21` (Python) as an alternative — note: would require a Python microservice alongside the Node backend
+- [x] **My Boi Jo** — Research the MusicXML schema. Answer: what fields exist? (notes, pitch, octave, duration, measure, lyric, rest)
+- [x] **My Boi Jo** — Read at least 1 real `.xml` MusicXML files
+- [x] **My Boi Jo** — Research rule-based pitch → fret mapping. Map out how you would convert a pitch (e.g., E4) to a string + fret in standard tuning (E2 A2 D3 G3 B3 E4)
+- [x] **My Boi Jo** — Research `music21` (Python) as an alternative — note: would require a Python microservice alongside the Node backend
 - [ ] **Emily** — Find and test at least 3 real MusicXML files from free sources 
-- [ ] **My Boi Jo + Emily** — Write a brief comparison doc: rule-based vs. music21 vs. OpenAI Vision in `docs/conversion-approach.md`
+- [x] **My Boi Jo + Emily** — Write a brief comparison doc: rule-based vs. music21 vs. OpenAI Vision in `docs/conversion-approach.md`
 - [ ] **Hunter** — Facilitate final team decision meeting; document the chosen approach in `PROJECT PLAN.md`
 
 **Decision must answer:**
-- [ ] Rule-based mapping, music21 Python service, or API? *(Team already leans rule-based — confirm or pivot)*
-- [ ] Standard tuning only for MVP? (E A D G B e — strongly recommend yes)
-- [ ] Single-melody input only for MVP? (no chords, no multi-instrument — strongly recommend yes)
-- [ ] What happens if a note is below E2 or above E4? (document the edge case handling plan)
+- [x] Rule-based mapping, music21 Python service, or API? *(Team already leans rule-based — confirm or pivot)*
+- [x] Standard tuning only for MVP? (E A D G B e — strongly recommend yes)
+- [x] Single-melody input only for MVP? (no chords, no multi-instrument — strongly recommend yes)
+- [x] What happens if a note is below E2 or above E4? (document the edge case handling plan)
 
 ---
 

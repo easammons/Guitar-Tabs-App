@@ -10,8 +10,8 @@ the tabs for easier guitar playing.
 | Hunter         | Project Manager / Full-Stack Integrator   | Sprint planning, GitHub management, team coordination, integration             |
 | Rhino          | Frontend Developer                        | React UI, upload page, result page, download button, styling                   |
 | Luke & Hunter  | Backend Developer                         | Express server, API routes, file upload handling, backend setup                |
-| My Boi Jo      | MusicXML / Conversion Developer           | MusicXML parsing, pitch mapping, guitar tab conversion, output file generation |
-| Emily          | Testing / Documentation / Rendering Lead  | Test files, error testing, README, tab viewer research, final demo prep        |
+| My Boi Jo      | MusicXML / Conversion Developer           | MusicXML parsing, pitch mapping, guitar tab conversion, output file generation, and also a backend developer|
+| Emily          | Testing / Documentation / Rendering Lead  | Test files, error testing, README, tab viewer research, final demo prep, and exploring music xml        |
 
 
 ## Tech Stack
@@ -99,3 +99,43 @@ Using TypeScript across the project helps the team write safer code and makes it
 ## Summary
 
 Overall, this stack gives us the best balance between simplicity, reliability, and long-term potential. The MVP focuses on a clean web app that uploads MusicXML, parses it, converts it into guitar tablature, displays the result, and allows the user to download the converted file. More advanced input types like PDF or photo upload can be added later after the core MusicXML pipeline works.
+
+---
+
+## Backend
+
+**Stack:** Python 3.11+, Flask, music21
+
+**How to run locally:**
+```bash
+cd server
+python -m venv venv
+venv\Scripts\activate        # Windows
+pip install -r requirements.txt
+python app.py                # runs on http://localhost:5000
+```
+
+### How it works
+
+**1. Upload — `POST /upload`**
+Send a `.xml` or `.mxl` file as form data. The server validates the file type and size (5MB max), saves it with a unique ID, and returns that `file_id`.
+
+**2. Convert — `POST /convert`**
+Send `{ "file_id": "..." }` as JSON. The server runs two steps:
+- **Parse** — uses music21 to read the MusicXML file and extract every note and rest as a dict with pitch, octave, MIDI number, duration, and measure number
+- **Convert** — maps each MIDI number to a guitar string and fret using standard tuning (E A D G B e). Out-of-range notes are flagged as `out_of_range`, rests are flagged as `rest`
+
+Returns a JSON array of tab entries that the frontend uses to render the visual tab.
+
+**3. Download — `GET /download?file_id=...`**
+Returns the original uploaded MusicXML file as a downloadable attachment.
+
+### Standard tuning reference
+| String | Open Note | Open MIDI |
+|--------|-----------|-----------|
+| 6 (low) | E2 | 40 |
+| 5 | A2 | 45 |
+| 4 | D3 | 50 |
+| 3 | G3 | 55 |
+| 2 | B3 | 59 |
+| 1 (high) | E4 | 64 |

@@ -7,10 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
+node_modules/
+dist/
 dist-ssr
 *.local
+.env
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +23,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python
+server/venv/
+server/__pycache__/
+server/**/__pycache__/
+*.pyc
+*.pyo
+
+# Uploaded files (keep the .gitkeep, ignore contents)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Claude Code local settings
+.claude/settings.local.json
+
+CLAUDE.md
