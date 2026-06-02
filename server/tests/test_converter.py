@@ -1,6 +1,6 @@
 """Manual test for convert_notes_to_tab."""
 import sys, os
-sys.path.insert(0, os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from services.converter import convert_notes_to_tab
 
