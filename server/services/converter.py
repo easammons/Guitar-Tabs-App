@@ -15,20 +15,15 @@ def midi_to_string_fret(midi: int) -> dict | None:
 
 
 def convert_notes_to_tab(notes: list[dict]) -> list[dict]:
-    """Convert parsed notes to guitar tab assignments.
-
-    Sprint 4: implement conversion logic.
-    """
-    # TODO (Sprint 4): uncomment to enable full conversion
-    # tab = []
-    # for note in notes:
-    #     if note['pitch'] == 'R':
-    #         tab.append({**note, 'string': None, 'fret': None, 'flag': 'rest'})
-    #         continue
-    #     placement = midi_to_string_fret(note['midi'])
-    #     if placement is None:
-    #         tab.append({**note, 'string': None, 'fret': None, 'flag': 'out_of_range'})
-    #     else:
-    #         tab.append({**note, **placement, 'flag': None})
-    # return tab
-    return notes
+    """Convert parsed notes to guitar tab assignments."""
+    tab = []
+    for note in notes:
+        if note['pitch'] == 'R':
+            tab.append({**note, 'string': None, 'fret': None, 'flag': 'rest'})
+            continue
+        placement = midi_to_string_fret(note['midi'])
+        if placement is None:
+            tab.append({**note, 'string': None, 'fret': None, 'flag': 'out_of_range'})
+        else:
+            tab.append({**note, **placement, 'flag': None})
+    return tab
