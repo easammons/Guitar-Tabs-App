@@ -7,7 +7,7 @@ from middleware.validate_file import require_musicxml_file
 upload_bp = Blueprint('upload', __name__)
 
 
-@upload_bp.post('/upload')
+@upload_bp.post('/upload') # Will this cause an error? I notice that the main page doesn't have the url /upload
 @require_musicxml_file
 def upload():
     file = request.files['file']
