@@ -15,7 +15,9 @@ export default function DownloadPage() {
             <div className="upload-dropzone">
                 <p className="upload-dropzone__label">Nice Image Bro!</p>
             </div>
-            <MyButton location='/' text="Download PDF" />
+            <span>
+                <MyButton location='/' text="Download PDF" />
+            </span>
         </div>
     )
 }
