@@ -1,4 +1,9 @@
-# Standard tuning open-string MIDI values, strings 6 (low E) → 1 (high E)
+from services.chord_voicer import voice_chord
+
+# Standard tuning open-string MIDI values, strings 1 (low E) -> 6 (high e).
+# NOTE: this numbers string 1 as the low E, which is the reverse of standard tab
+# convention (string 1 = high e). Kept for consistency with the existing melody
+# path; flagged for the team to reconcile separately. See CLAUDE.md.
 OPEN_MIDI = [40, 45, 50, 55, 59, 64]
 
 
@@ -15,15 +20,27 @@ def midi_to_string_fret(midi: int) -> dict | None:
 
 
 def convert_notes_to_tab(notes: list[dict]) -> list[dict]:
-    """Convert parsed notes to guitar tab assignments."""
+    """Convert parsed notes/chords/rests to guitar tab assignments.
+
+    Each input dict carries a 'type' of 'note', 'chord', or 'rest'. Older callers
+    that omit 'type' are treated as melody notes (rests use pitch 'R').
+    """
     tab = []
     for note in notes:
-        if note['pitch'] == 'R':
-            tab.append({**note, 'string': None, 'fret': None, 'flag': 'rest'})
+        kind = note.get('type')
+
+        if kind == 'chord':
+            voicing = voice_chord(note['root_pc'], note['quality'], note['midis'])
+            tab.append({**note, **voicing})
             continue
+
+        if kind == 'rest' or note.get('pitch') == 'R':
+            tab.append({**note, 'type': 'rest', 'string': None, 'fret': None, 'flag': 'rest'})
+            continue
+
         placement = midi_to_string_fret(note['midi'])
         if placement is None:
-            tab.append({**note, 'string': None, 'fret': None, 'flag': 'out_of_range'})
+            tab.append({**note, 'type': 'note', 'string': None, 'fret': None, 'flag': 'out_of_range'})
         else:
-            tab.append({**note, **placement, 'flag': None})
+            tab.append({**note, 'type': 'note', **placement, 'flag': None})
     return tab
