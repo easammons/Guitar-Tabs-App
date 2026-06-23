@@ -81,17 +81,26 @@ def _chord_quality(chord: music21.chord.Chord) -> tuple[str, str]:
 def parse_musicxml(file_id: str) -> list[dict]:
     """Parse a MusicXML file and return a list of note/chord/rest dicts.
 
+    Single-part files: existing behaviour (notes, chords, rests all pass through).
+    Multi-part files: melody extraction — highest in-range note at each beat,
+    one note per beat, no chords in output.
+
     Note dict:  type='note', pitch, octave, midi, duration, measure.
     Rest dict:  type='rest', pitch='R', octave/midi=None, duration, measure.
     Chord dict: type='chord', root, root_pc, quality, name, common_name,
-                midis, pitches, duration, measure. Octave/voicing of the written
-                notes is preserved in midis/pitches; the converter substitutes a
-                guitar-friendly shape based on root + quality.
+                midis, pitches, duration, measure. Only emitted for single-part
+                input; multi-part paths reduce to single notes.
     """
     path = os.path.join(current_app.config['UPLOAD_FOLDER'], file_id)
     score = music21.converter.parse(path)
+
+    if len(score.parts) > 1:
+        elements = _extract_melody_stream(score)
+    else:
+        elements = score.flatten().notesAndRests
+
     notes = []
-    for element in score.flatten().notesAndRests:
+    for element in elements:
         if isinstance(element, music21.chord.Chord):
             root = element.root()
             quality, suffix = _chord_quality(element)
