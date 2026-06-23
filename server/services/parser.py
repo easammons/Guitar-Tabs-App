@@ -35,20 +35,17 @@ def _extract_melody_stream(score: music21.stream.Score) -> list:
                     if GUITAR_MIDI_MIN <= p.midi <= GUITAR_MIDI_MAX
                 ]
                 if in_range:
-                    notes_by_offset[offset].append(el)
+                    highest = max(in_range, key=lambda p: p.midi)
+                    synthetic = music21.note.Note(highest)
+                    synthetic.offset = el.offset
+                    synthetic.quarterLength = el.quarterLength
+                    notes_by_offset[float(el.offset)].append(synthetic)
 
     all_offsets = sorted(set(notes_by_offset) | set(rests_by_offset))
     result = []
     for offset in all_offsets:
         if notes_by_offset[offset]:
-            best = max(
-                notes_by_offset[offset],
-                key=lambda el: (
-                    el.pitch.midi
-                    if isinstance(el, music21.note.Note)
-                    else max(p.midi for p in el.pitches)
-                ),
-            )
+            best = max(notes_by_offset[offset], key=lambda el: el.pitch.midi)
             result.append(best)
         else:
             result.append(rests_by_offset[offset][0])
