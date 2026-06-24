@@ -1,0 +1,44 @@
+{
+  "tab": [
+    {
+      "duration": 1,
+      "flag": null,
+      "fret": 10,
+      "measure": 1,
+      "midi": 60,
+      "octave": 4,
+      "pitch": "C",
+      "string": 3
+    },
+    {
+      "duration": 1,
+      "flag": null,
+      "fret": 12,
+      "measure": 1,
+      "midi": 62,
+      "octave": 4,
+      "pitch": "D",
+      "string": 3
+    },
+    {
+      "duration": 1,
+      "flag": null,
+      "fret": 9,
+      "measure": 1,
+      "midi": 64,
+      "octave": 4,
+      "pitch": "E",
+      "string": 4
+    },
+    {
+      "duration": 1,
+      "flag": null,
+      "fret": 10,
+      "measure": 1,
+      "midi": 60,
+      "octave": 4,
+      "pitch": "C",
+      "string": 3
+    }
+  ]
+}
