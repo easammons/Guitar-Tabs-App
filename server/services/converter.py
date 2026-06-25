@@ -7,16 +7,23 @@ from services.chord_voicer import voice_chord
 OPEN_MIDI = [40, 45, 50, 55, 59, 64]
 
 
-def midi_to_string_fret(midi: int) -> dict | None:
-    """Map a MIDI note number to the lowest guitar string that can play it.
+MAX_FRET = 24  # standard guitar goes to ~20-24 frets; 24 covers full MIDI 40-88 range
 
-    Returns {'string': 1-6, 'fret': 0-12} or None if out of playable range.
+
+def midi_to_string_fret(midi: int) -> dict | None:
+    """Map a MIDI note number to the most playable guitar position (lowest fret).
+
+    Prefers the highest string (thinnest) where the fret number is minimised,
+    which produces the most natural single-note melody fingering.
+    Returns {'string': 1-6, 'fret': 0-24} or None if out of playable range.
     """
+    best = None
     for string_num, open_note in enumerate(OPEN_MIDI, start=1):
         fret = midi - open_note
-        if 0 <= fret <= 12:
-            return {'string': string_num, 'fret': fret}
-    return None
+        if 0 <= fret <= MAX_FRET:
+            if best is None or fret < best['fret']:
+                best = {'string': string_num, 'fret': fret}
+    return best
 
 
 def convert_notes_to_tab(notes: list[dict]) -> list[dict]:
